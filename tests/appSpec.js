@@ -11,4 +11,10 @@ describe('LearnJavaScript', function(){
         learnjavascript.showView('');
         expect($('.view-container .landing-view').length).toEqual(1);
     });
+
+    it('passes the hash view parameter to the view function', function(){
+       spyOn(learnjavascript, 'questionView');
+        learnjavascript.showView('#question-42');
+        expect(learnjavascript.questionView().toHaveBeenCalledWith('42'))
+    });
 });
