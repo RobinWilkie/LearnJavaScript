@@ -3,9 +3,9 @@
  */
 var learnjavascript={};
 
-learnjavascript.showView = function() {
-    var questionView = $('<div class="question-view">').text('Arriving Soon!');
-    $('view-container').empty().append(questionView);
+learnjavascript.questionView = function(problemNumber) {
+    var title = 'Question #' + problemNumber + 'Arriving Soon!!';
+    return $('<div class="question-view">').text(title);
 };
 
 learnjavascript.showView = function(hash){
