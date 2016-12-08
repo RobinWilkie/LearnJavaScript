@@ -17,4 +17,11 @@ describe('LearnJavaScript', function(){
         learnjavascript.showView('#question-42');
         expect(learnjavascript.questionView().toHaveBeenCalledWith('42'))
     });
+
+    describe('problem view', function(){
+        it('has a title that includes the problem number', function(){
+            var view = learnjavascript.questionView('1');
+            expect(view.text()).toEqual('Question #1 Arriving soon!!');
+        });
+    });
 });
