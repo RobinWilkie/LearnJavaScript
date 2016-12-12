@@ -24,4 +24,17 @@ describe('LearnJavaScript', function(){
             expect(view.text()).toEqual('Question #1 Arriving soon!!');
         });
     });
+
+    it('invokes the router when loading', function(){
+        spyOn(learnjavascript,'showView');
+        learnjavascript.appOnReady();
+        expect(learnjavascript.showView).toHaveBeenCalledWith(window.location.hash);
+    });
+
+    it('subscribes to the hash change event', function(){
+       learnjavascript.appOnReady();
+        spyOn(learnjavascript, 'showView');
+        $(window).on('hashchange', function(){}).trigger('hashchange');
+        expect(learnjavascript.showView).toHaveBeenCalledWith(window.location.hash);
+       });
 });

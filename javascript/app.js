@@ -1,6 +1,7 @@
 /**
  * Created by davem on 27/11/2016.
  */
+'use strict';
 var learnjavascript={};
 
 learnjavascript.questionView = function(problemNumber) {
@@ -18,4 +19,11 @@ learnjavascript.showView = function(hash){
     if (viewFn) {
         $('.view-container').empty().append(viewFn(hashParts[1]));
     }
+};
+
+learnjavascript.appOnReady = function(){
+    window.onhashchange = function(){
+    learnjavascript.showView(window.location.hash);
+};
+    learnjavascript.showView(window.location.hash);
 };
