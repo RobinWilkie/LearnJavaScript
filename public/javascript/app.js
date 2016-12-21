@@ -48,10 +48,10 @@ learnjavascript.questionView = function(data){
 
     function checkAnswerClick(){
         if(checkAnswer()){
-            resultFlash.text('Correct!');
+            learnjavascript.flashElement(resultFlash, 'Correct!');
         }
         else{
-            resultFlash('Incorrect!');
+            learnjavascript.flashElement(resultFlash, 'Incorrect!');
         }
     }return false;
 
@@ -77,3 +77,10 @@ learnjavascript.applyObject = function(obj, elem){
         elem.find('[data-name="'+key+'"]').text(obj[key]);
     }
 };
+
+learnjavascript.flashElement = function(elem, content){
+    elem.fadeOut('fast', function(){
+        elem.html(content);
+        elem.fadeIn();
+    })
+}
