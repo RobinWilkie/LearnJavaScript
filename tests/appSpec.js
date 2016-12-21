@@ -7,7 +7,7 @@ describe('LearnJavaScript', function(){
         expect($('.view-container .question-view').length).toEqual(1);
         });
 
-    it('shows the landing page view when there is no hash', removeFunctionWithId(){
+    it('shows the landing page view when there is no hash', function(){
         learnjavascript.showView('');
         expect($('.view-container .landing-view').length).toEqual(1);
     });
